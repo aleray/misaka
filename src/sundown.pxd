@@ -66,6 +66,7 @@ cdef extern from 'sundown/markdown.h':
         int (*link)(buf *ob, buf *link, buf *title, buf *content, void *opaque)
         int (*raw_html_tag)(buf *ob, buf *tag, void *opaque)
         int (*triple_emphasis)(buf *ob, buf *text, void *opaque)
+        int (*ins)(buf *ob, buf *text, void *opaque)
         int (*strikethrough)(buf *ob, buf *text, void *opaque)
         int (*superscript)(buf *ob, buf *text, void *opaque)
 

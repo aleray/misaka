@@ -221,6 +221,13 @@ rndr_triple_emphasis(struct buf *ob, const struct buf *text, void *opaque)
 
 
 static int
+rndr_ins(struct buf *ob, const struct buf *text, void *opaque)
+{
+    PROCESS_SPAN("ins", PY_STR(text), NULL);
+}
+
+
+static int
 rndr_strikethrough(struct buf *ob, const struct buf *text, void *opaque)
 {
     PROCESS_SPAN("strikethrough", PY_STR(text), NULL);
@@ -288,6 +295,7 @@ struct sd_callbacks callback_funcs = {
     rndr_link,
     rndr_raw_html,
     rndr_triple_emphasis,
+    rndr_ins,
     rndr_strikethrough,
     rndr_superscript,
 
@@ -321,6 +329,7 @@ const char *method_names[] = {
     "link",
     "raw_html",
     "triple_emphasis",
+    "ins",
     "strikethrough",
     "superscript",
 
